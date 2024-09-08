@@ -1,173 +1,234 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tea Shop</title>
+  <link rel="stylesheet" type="text/css" href="./reset.css">
+  <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
+
 <body>
-  <header>
-    <img
-      src="./asserts/logo.svg"
-      alt="логотип"
-    />
-    <nav>
-      <ul>
-        <li>
-          <a href="#home">Главная</a>
-        </li>
+  <header class="header">
+    <div class="header__container">
+      <img class="logo header__logo" src="./asserts/logo.svg" alt="логотип" />
+      <nav class="header__nav">
+        <ul class="header__list">
+          <li class="header__item">
+            <a class="header__link" href="#home">Главная</a>
+          </li>
 
-        <li>
-          <a href="#about">О нас</a>
-        </li>
+          <li class="header__item">
+            <a class="header__link" href="#about">О нас</a>
+          </li>
 
-        <li>
-          <a href="#catalog">Каталог</a>
-        </li>
+          <li class="header__item">
+            <a class="header__link" href="#catalog">Каталог</a>
+          </li>
 
-        <li>
-          <a href="#contacts">Контакты</a>
-        </li>
-      </ul>
-    </nav>
+          <li class="header__item">
+            <a class="header__link" href="#contacts">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="#home">
-      <div>
-        <h1>Чайная вселенная</h1>
-        <blockquote>
-          "Хороший чай, как и <strong>успех</strong>, требует терпения: <em>нельзя спешить, но и останавливаться не стоит</em>."
-        </blockquote>
-        <p>
-          Формула идеального чая: Вкус = Листья<sup>качество</sup> + Вода<sub>t<sub>заваривания</sub></sub>
-        </p>        
-        <button>Посмотреть чай</button>
-      </div>
-      <img/>
+  <main class="main">
+    <section id="#home" class="hero">
+      <div class="hero__wrapper">
+        <div class="hero__container">
+          <div class="hero__content">
+            <h1 class="hero__title">Чайная вселенная</h1>
+            <blockquote class="hero__quote">
+              "Хороший чай, как и <strong>успех</strong>, требует терпения: <em>нельзя спешить, но и останавливаться не
+                стоит</em>."
+            </blockquote>
+            <button class="button button--primary hero__button">Посмотреть чай</button>
+          </div>
 
-      <button>
-        <a>
-          <img
-            src="./asserts/arrow-down.svg"
-            alt="стрелка перехода"
-          />
-        </a>
-      </button>
-    </section>
-
-    <section>
-      <h3>Наборы</h3>
-      <div>
-        <img 
-          src="./asserts/tea-kit.jpg"
-          alt="весь чай"
-        />
-        <h6>Весь чай</h6>
-      </div>
-      <div>
-        <img
-          src="./asserts/starter-pack.jpg"
-          alt="набор новичка"
-        />
-        <h6>Набор новичка</h6>
-      </div>
-    </section>
-
-    <section id="about">
-      <h3>Наша история</h3>
-      <article>
-        <p>Помимо фермерских чаев, у нас есть свое <i>производство в Китае</i>, которым руководит наш технолог Ен Дань Нань.<br/>
-          Под каждый чай мы заранее продумываем концепцию, его дизайн и итоговый вкус. При этом большой упор идет именно на качество первоначального сырья. Эти чаи делаются в ограниченном тираже, и их смело можно называть крафтовыми. У нас нет задачи делать много однотипного чая проходного качества в больших объемах. Такого и так полно. Делать интересные чаи высокого уровня - вот это наш путь.</p>
-        <img
-          src="./asserts/tea-history.jpg"
-          alt="фотография чая"
-        />
-      </article>
-    </section>
-
-    <section id="catalog">
-      <h3>Коллекция чаев нашего производства</h3>
-
-      <div>
-        <h6>Красный чай 300г</h6>
-        <img
-          src="./asserts/tea.png"
-          alt="чай"
-        />
-        <div>
-          <button>Подробнее</button>
-          <button>Купить</button>
+          <img class="hero__image" alt="hero-tea-image" src="./asserts/tea-hero.jpg" />
         </div>
       </div>
 
-      <div>
-        <h6>Красный чай 300г</h6>
-        <img
-          src="./asserts/tea.png"
-          alt="чай"
-        />
-        <div>
-          <button>Подробнее</button>
-          <button>Купить</button>
-        </div>
-      </div>
 
-      <div>
-        <h6>Красный чай 300г</h6>
+      <!-- <button class="button button--icon">
+      <a href="#catalog">
         <img
-          src="./asserts/tea.png"
-          alt="чай"
+          class="button__icon"
+          src="./asserts/arrow-down.svg"
+          alt="стрелка перехода"
         />
-        <div>
-          <button>Подробнее</button>
-          <button>Купить</button>
-        </div>
-      </div>
+      </a>
+    </button> -->
     </section>
 
-    <section>
-      <pre>
+    <div class="main__wrapper">
+      <section id="kits" class="kits">
+        <h3 class="kits__subtitle">Наборы</h3>
+
+        <div class="kits__content">
+          <div class="kit">
+            <img class="kit__image" src="./asserts/tea-kit.jpg" alt="весь чай" />
+            <h6 class="kit__title">Весь чай</h6>
+          </div>
+
+          <div class="kit">
+            <img class="kit__image" src="./asserts/starter-pack.jpg" alt="набор новичка" />
+            <h6 class="kit__title">Набор новичка</h6>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="history">
+        <h3 class="history__subtitle">Наша история</h3>
+
+        <div class="history__container">
+          <article class="history__article">
+            <p class="history__text">
+              Помимо фермерских чаев, у нас есть свое <i>производство в Китае</i>, которым руководит
+              наш технолог Ен Дань Нань.
+            </p>
+            <p class="history__text">
+              Под каждый чай мы заранее продумываем концепцию, его дизайн и итоговый вкус. При этом большой упор идет
+              именно на качество первоначального сырья. Эти чаи делаются в ограниченном тираже, и их смело можно
+              называть
+              крафтовыми. У нас нет задачи делать много однотипного чая проходного качества в больших объемах. Такого и
+              так полно. Делать интересные чаи высокого уровня - вот это наш путь.</p>
+          </article>
+
+          <img class="history__image" src="./asserts/tea-history.jpg" alt="фотография чая" />
+        </div>
+      </section>
+
+      <section id="catalog" class="catalog">
+        <h3 class="catalog__subtitle">Коллекция чаев нашего производства</h3>
+
+        <div class="catalog__container">
+          <div class="product">
+            <div class="product__container">
+              <img class="product__image" src="./asserts/tea.png" alt="чай" />
+              <h6 class="product__title">Красный чай 300г</h6>
+              <div class=" product__buttons">
+                <button class="button product__button">Подробнее</button>
+                <button class="button product__button button--primary">Купить</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product">
+            <div class="product__container">
+              <img class="product__image" src="./asserts/tea.png" alt="чай" />
+              <h6 class="product__title">Красный чай 300г</h6>
+              <div class=" product__buttons">
+                <button class="button product__button">Подробнее</button>
+                <button class="button product__button button--primary">Купить</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product">
+            <div class="product__container">
+              <img class="product__image" src="./asserts/tea.png" alt="чай" />
+              <h6 class="product__title">Красный чай 300г</h6>
+              <div class=" product__buttons">
+                <button class="button product__button">Подробнее</button>
+                <button class="button product__button button--primary">Купить</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product">
+            <div class="product__container">
+              <img class="product__image" src="./asserts/tea.png" alt="чай" />
+              <h6 class="product__title">Красный чай 300г</h6>
+              <div class=" product__buttons">
+                <button class="button product__button">Подробнее</button>
+                <button class="button product__button button--primary">Купить</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product">
+            <div class="product__container">
+              <img class="product__image" src="./asserts/tea.png" alt="чай" />
+              <h6 class="product__title">Красный чай 300г</h6>
+              <div class=" product__buttons">
+                <button class="button product__button">Подробнее</button>
+                <button class="button product__button button--primary">Купить</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="price-list" class="price-list">
+        <h3 class="price-list__title">Цены на чай</h3>
+        <div class="price-list__table">
+          <div class="price-list__header">Название чая</div>
+          <div class="price-list__header">Вес</div>
+          <div class="price-list__header">Цена</div>
+  
+          <div class="price-list__row">Красный чай</div>
+          <div class="price-list__row">100г</div>
+          <div class="price-list__row">500₽</div>
+  
+          <div class="price-list__row">Зеленый чай</div>
+          <div class="price-list__row">100г</div>
+          <div class="price-list__row">450₽</div>
+  
+          <div class="price-list__row">Чёрный чай</div>
+          <div class="price-list__row">100г</div>
+          <div class="price-list__row">550₽</div>
+        </div>
+      </section>
+
+      <section class="additional-info">
+        <div class="additional-info__container">
+          <pre>
         ╔═════════════════╗
         ║  TEA SHOP LOGO  ║
         ╚═════════════════╝
-      </pre>
+          </pre>
 
-      <pre>
-        <code>
-          function brewTea(teaType) {
-            console.log("Завариваем " + teaType);
-          }
-        </code>
-      </pre>
-    </section>
+          <pre>
+            <code>
+              function brewTea(teaType) {
+                console.log("Завариваем " + teaType);
+              }
+            </code>
+          </pre>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <footer id="contacts">
-    <img 
-      src="./asserts/logo.svg"
-      alt="логотип"
-    />
+  <footer id="contacts" class="footer">
+    <div class="footer__container">
+      <img class="logo" src="./asserts/logo.svg" alt="логотип" />
 
-    <nav>
-      <ul>
-        <li>
-          <a href="#home">Главная</a>
-        </li>
+      <nav class="footer__nav">
+        <ul class="footer__list">
+          <li>
+            <a href="#home">Главная</a>
+          </li>
 
-        <li>
-          <a href="#about">О нас</a>
-        </li>
+          <li>
+            <a href="#about">О нас</a>
+          </li>
 
-        <li>
-          <a href="#catalog">Каталог</a>
-        </li>
+          <li>
+            <a href="#catalog">Каталог</a>
+          </li>
 
-        <li>
-          <a href="#contacts">Контакты</a>
-        </li>
-      </ul>
-    </nav>
+          <li>
+            <a href="#contacts">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </footer>
 </body>
+
 </html>
