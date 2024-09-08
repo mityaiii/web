@@ -1,0 +1,100 @@
+/* order-form */
+.tea-brewing {
+  padding-top: 200px;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.tea-brewing__section {
+  min-height: 100%;
+}
+
+.tea-brewing__form label {
+  display: block;
+}
+
+.tea-brewing__form input {
+  padding: 2px;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.tea-brewing__form input,
+.tea-brewing__form select {
+  margin-top: 8px;
+}
+.tea-brewing__form input[type="text"],
+.tea-brewing__form select,
+.tea-brewing__form button {
+  display: block;
+  width: 100%;
+}
+
+.tea-brewing__container {
+  margin: 0 auto;
+
+  width: 410px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  row-gap: 24px;
+}
+
+.tea-brewing__form {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  row-gap: 24px;
+}
+
+.tea-brewing__button {
+  border: 2px solid var(--primary-color);
+  padding: 8px 16px;
+}
+
+.tea-brewing__title {
+  font-size: 2rem;
+}
+
+.form__footer {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+}
+
+.tea-brewing__buttons {
+  display: flex;
+
+  column-gap: 12px;
+}
+
+.tea-brewing__list li {
+  padding: 2px;
+  margin-bottom: 12px;
+  padding-left: 4px;
+  border-left: 2px solid var(--primary-color);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tea-brewing__list button {
+  width: 24px;
+}
+
+.result__container {
+  margin: 0 auto;
+  width: min-content;
+  margin-top: 16px;
+}

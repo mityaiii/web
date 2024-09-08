@@ -1,0 +1,45 @@
+/* history */
+.history__subtitle {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.history__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.history__article {
+  width: 40%;
+}
+
+.history__text {
+  font-size: 1.4rem;
+}
+
+.history__image {
+  width: 480px;
+
+  border-radius: var(--border-radius);
+}
+
+@media (max-width: 1024px) {
+  .history__container {
+    flex-direction: column-reverse;
+    row-gap: 24px;
+  }
+
+  .history__article {
+    padding-left: 8px;
+    padding-right: 8px;
+
+    max-width: 480px;
+    width: 100%;
+  }
+
+  .history__text {
+    font-size: 1rem;
+  }  
+}

@@ -5,8 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tea Shop</title>
-  <link rel="stylesheet" type="text/css" href="./reset.css">
-  <link rel="stylesheet" type="text/css" href="./styles.css">
+  <link rel="stylesheet" type="text/css" href="./styles/reset.css">
+  <link rel="stylesheet" type="text/css" href="./styles/default.css">
+  <link rel="stylesheet" type="text/css" href="./styles/index/catalog.css">
+  <link rel="stylesheet" type="text/css" href="./styles/index/hero.css">
+  <link rel="stylesheet" type="text/css" href="./styles/index/history.css">
+  <link rel="stylesheet" type="text/css" href="./styles/index/kits.css">
+  <link rel="stylesheet" type="text/css" href="./styles/index/price-list.css">
+
+  <script src="./scripts/parse-load-statistic.js"></script>
+  <script src="./scripts/hero__link.js"></script>
 </head>
 
 <body>
@@ -16,19 +24,15 @@
       <nav class="header__nav">
         <ul class="header__list">
           <li class="header__item">
-            <a class="header__link" href="#home">Главная</a>
+            <a class="header__link" href="/index.html">Главная</a>
           </li>
 
           <li class="header__item">
-            <a class="header__link" href="#about">О нас</a>
+            <a class="header__link" href="/form.html">Создать рецепт</a>
           </li>
 
           <li class="header__item">
-            <a class="header__link" href="#catalog">Каталог</a>
-          </li>
-
-          <li class="header__item">
-            <a class="header__link" href="#contacts">Контакты</a>
+            <a class="header__link" href="/comments.html">Отзывы</a>
           </li>
         </ul>
       </nav>
@@ -36,7 +40,7 @@
   </header>
 
   <main class="main">
-    <section id="#home" class="hero">
+    <section id="#hero-section" class="hero">
       <div class="hero__wrapper">
         <div class="hero__container">
           <div class="hero__content">
@@ -51,17 +55,6 @@
           <img class="hero__image" alt="hero-tea-image" src="./asserts/tea-hero.jpg" />
         </div>
       </div>
-
-
-      <!-- <button class="button button--icon">
-      <a href="#catalog">
-        <img
-          class="button__icon"
-          src="./asserts/arrow-down.svg"
-          alt="стрелка перехода"
-        />
-      </a>
-    </button> -->
     </section>
 
     <div class="main__wrapper">
@@ -210,25 +203,22 @@
 
       <nav class="footer__nav">
         <ul class="footer__list">
-          <li>
-            <a href="#home">Главная</a>
+          <li class="header__item">
+            <a class="header__link" href="/index.html">Главная</a>
           </li>
 
-          <li>
-            <a href="#about">О нас</a>
+          <li class="header__item">
+            <a class="header__link" href="/form.html">Создать рецепт</a>
           </li>
 
-          <li>
-            <a href="#catalog">Каталог</a>
-          </li>
-
-          <li>
-            <a href="#contacts">Контакты</a>
+          <li class="header__item">
+            <a class="header__link" href="/comments.html">Отзывы</a>
           </li>
         </ul>
       </nav>
     </div>
+
+    <div class="footer__stats"></div>
   </footer>
 </body>
-
 </html>

@@ -1,0 +1,129 @@
+/* default */
+:root {
+  --primary-color-rgb: 251, 106, 25;
+  --primary-color: #FB6A19;
+  --secondary-color: #0a0a0a;
+  --background-color: #fff;
+
+  --border-radius: 16px;
+  --screen-width: 1280px;
+
+  --background-color-animation: background-color 0.3s ease;
+  --color-animation: color 0.3s ease;
+  --transform-animation: transform 0.3s ease;
+
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+}
+
+.button {
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+}
+
+.button--primary {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+}
+
+.main {
+  padding-top: 100px;
+}
+
+.main section {
+  padding: 32px 0;
+}
+
+.main__wrapper {
+  display: flex;
+  flex-direction: column;
+
+  row-gap: 32px;
+
+  max-width: var(--screen-width);
+  margin: 0 auto;
+}
+
+/* header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--background-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  padding: 16px 0px;
+}
+
+.header__container {
+  max-width: var(--screen-width);
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__list {
+  display: flex;
+  column-gap: 16px;
+}
+
+.header__link {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  transition: var(--color-animation);
+}
+
+.header__link:hover {
+  color: var(--secondary-colors);
+}
+
+.header__link.active {
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 2px;
+}
+
+/* footer */
+.footer {
+  background-color: var(--background-color);
+
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  row-gap: 12px;
+}
+
+.footer__list {
+  display: flex;
+  column-gap: 12px;
+}
+
+.footer__list a {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.footer__stats {
+  margin-top: 1rem;
+  text-align: center;
+}

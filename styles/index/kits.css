@@ -1,0 +1,38 @@
+/* kits */
+.kits__subtitle {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.kits__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.kit__image {
+  border-radius: var(--border-radius);
+  width: 480px;
+}
+
+.kit {
+  position: relative;
+}
+
+.kit__title {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+
+  font-size: 1.4rem;
+
+  color: var(--background-color);
+}
+
+@media (max-width: 1024px) {
+  .kits__content {
+    flex-direction: column;
+    row-gap: 24px;
+  }
+}

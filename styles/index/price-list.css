@@ -1,0 +1,49 @@
+/* prices */
+.price-list {
+  margin: 2rem 0;
+}
+
+.price-list__title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.price-list__table {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.price-list__header {
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
+
+.price-list__row {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.price-list__row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.price-list__row:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .price-list__table {
+    grid-template-columns: 1fr;
+  }
+
+  .price-list__header, .price-list__row {
+    text-align: left;
+  }
+}
