@@ -12,9 +12,11 @@
   <link rel="stylesheet" type="text/css" href="./styles/index/history.css">
   <link rel="stylesheet" type="text/css" href="./styles/index/kits.css">
   <link rel="stylesheet" type="text/css" href="./styles/index/price-list.css">
+  <link rel="stylesheet" type="text/css" href="./styles/index/comments.css">
 
   <script src="./scripts/parse-load-statistic.js"></script>
-  <script src="./scripts/hero__link.js"></script>
+  <script src="./scripts/nav__link.js"></script>
+  <script src="./scripts/index/comments-parsing.js"></script>
 </head>
 
 <body>
@@ -40,7 +42,7 @@
   </header>
 
   <main class="main">
-    <section id="#hero-section" class="hero">
+    <section class="hero">
       <div class="hero__wrapper">
         <div class="hero__container">
           <div class="hero__content">
@@ -58,7 +60,7 @@
     </section>
 
     <div class="main__wrapper">
-      <section id="kits" class="kits">
+      <section class="kits">
         <h3 class="kits__subtitle">Наборы</h3>
 
         <div class="kits__content">
@@ -74,7 +76,7 @@
         </div>
       </section>
 
-      <section id="about" class="history">
+      <section class="history">
         <h3 class="history__subtitle">Наша история</h3>
 
         <div class="history__container">
@@ -95,7 +97,7 @@
         </div>
       </section>
 
-      <section id="catalog" class="catalog">
+      <section class="catalog">
         <h3 class="catalog__subtitle">Коллекция чаев нашего производства</h3>
 
         <div class="catalog__container">
@@ -156,7 +158,26 @@
         </div>
       </section>
 
-      <section id="price-list" class="price-list">
+      <section class="comments">
+        <h3 class="comments__title">Отзывы</h3>
+
+        <div class="comments__container">
+          <img 
+            id="preloader" 
+            class="comments__preloader"
+            src="./asserts/preloader.gif"
+            alt="preloader"
+          />
+
+          <div class="comment__error" id="error-message"></div>
+
+          <div id="comments-grid" class="comments__grid">
+          </div>
+        </div>
+
+      </section>
+
+      <section class="price-list">
         <h3 class="price-list__title">Цены на чай</h3>
         <div class="price-list__table">
           <div class="price-list__header">Название чая</div>

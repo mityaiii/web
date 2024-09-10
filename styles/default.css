@@ -127,3 +127,7 @@ body {
   margin-top: 1rem;
   text-align: center;
 }
+
+.none {
+  display: none !important;
+}
