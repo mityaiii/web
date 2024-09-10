@@ -51,6 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const listItem = document.createElement("li");
     const label = document.createElement("label");
+    const uniqueId = `feature-${Date.now()}`;
+    label.setAttribute('for', uniqueId);
     label.textContent = feature;
 
     const checkbox = document.createElement("input");
@@ -74,13 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
     teaBrewingFeaturesElement.innerHTML = "";
     teaBrewingFeatureInput.value = "";
     teaNameInput.value = "";
+
+    resultContainer.innerHTML = ""; 
+
+    localStorage.removeItem("teaName");
+    localStorage.removeItem("brewingFeatures");
+
     brewingFeatures = [];
     brewingFeatures.forEach(value => {
       displayBrewingFeature(value);
     })
-
-    localStorage.removeItem("teaName");
-    localStorage.removeItem("brewingFeatures");
   }
 
   function translate(text, lang) {
@@ -98,18 +103,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const language = languageSelect.value;
     const teaName = teaNameInput.value;
 
-    console.log(teaName);
-
     localStorage.setItem("teaName", teaName);
     localStorage.setItem("brewingFeatures", JSON.stringify(brewingFeatures));
 
     resultContainer.innerHTML = `<h3>${translate('Рецепт', language)}: ${teaName}</h3>`;
     const list = document.createElement("ul");
 
-    brewingFeatures.forEach((feature) => {
-      const listItem = document.createElement("li");
-      listItem.textContent = feature;
-      list.appendChild(listItem);
+    const allItems = teaBrewingFeaturesElement.querySelectorAll("li");
+    allItems.forEach((item) => {
+      const label = item.querySelector("label");
+
+      if (!label.classList.contains('strikethrough')) {
+        const listItem = document.createElement("li");
+        listItem.textContent = label.textContent;
+        list.appendChild(listItem);
+      }
     });
 
     resultContainer.appendChild(list);
