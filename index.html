@@ -5,15 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tea Shop</title>
-  <link rel="stylesheet" type="text/css" href="./styles/reset.css">
-  <link rel="stylesheet" type="text/css" href="./styles/default.css">
-  <link rel="stylesheet" type="text/css" href="./styles/index/catalog.css">
-  <link rel="stylesheet" type="text/css" href="./styles/index/hero.css">
-  <link rel="stylesheet" type="text/css" href="./styles/index/history.css">
-  <link rel="stylesheet" type="text/css" href="./styles/index/kits.css">
-  <link rel="stylesheet" type="text/css" href="./styles/index/price-list.css">
-  <link rel="stylesheet" type="text/css" href="./styles/index/comments.css">
 
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/default.css">
+  <link rel="stylesheet" href="./styles/index/catalog.css">
+  <link rel="stylesheet" href="./styles/index/hero.css">
+  <link rel="stylesheet" href="./styles/index/history.css">
+  <link rel="stylesheet" href="./styles/index/kits.css">
+  <link rel="stylesheet" href="./styles/index/price-list.css">
+  <link rel="stylesheet" href="./styles/index/comments.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="./scripts/parse-load-statistic.js"></script>
   <script src="./scripts/nav__link.js"></script>
   <script src="./scripts/index/comments-parsing.js"></script>
@@ -162,16 +169,11 @@
         <h3 class="comments__title">Отзывы</h3>
 
         <div class="comments__container">
-          <img 
-            id="preloader" 
-            class="comments__preloader"
-            src="./asserts/preloader.gif"
-            alt="preloader"
-          />
+          <img id="preloader" class="comments__preloader" src="./asserts/preloader.gif" alt="preloader" />
 
           <div class="comment__error" id="error-message"></div>
-
-          <div id="comments-grid" class="comments__grid">
+          
+          <div class="comment__slider">
           </div>
         </div>
 
@@ -183,15 +185,15 @@
           <div class="price-list__header">Название чая</div>
           <div class="price-list__header">Вес</div>
           <div class="price-list__header">Цена</div>
-  
+
           <div class="price-list__row">Красный чай</div>
           <div class="price-list__row">100г</div>
           <div class="price-list__row">500₽</div>
-  
+
           <div class="price-list__row">Зеленый чай</div>
           <div class="price-list__row">100г</div>
           <div class="price-list__row">450₽</div>
-  
+
           <div class="price-list__row">Чёрный чай</div>
           <div class="price-list__row">100г</div>
           <div class="price-list__row">550₽</div>
@@ -242,4 +244,5 @@
     <div class="footer__stats"></div>
   </footer>
 </body>
+
 </html>

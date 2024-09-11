@@ -2,59 +2,71 @@ const api = 'https://jsonplaceholder.typicode.com/comments';
 
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const commentsContainer = document.getElementById('comments-grid');
-  const preloader = document.getElementById('preloader');
-  const errorMessage = document.getElementById('error-message');
+$(document).ready(async function () {
+  const sliderContainer = $('.comment__slider');
+  const preloader = $('#preloader');
+  const errorMessage = $('#error-message');
 
   const postFilter = `?postId=${getRandomInt(1, 100)}`;
 
   const hidePreloader = () => {
-    preloader.classList.add('none');
+    preloader.addClass('none');
   }
 
   const showErrorMessage = (value) => {
-    errorMessage.innerHTML = value;
+    errorMessage.html(value);
   }
 
   const renderComments = (comments) => {
     comments.forEach(comment => {
-      const commentDiv = document.createElement('div');
-      commentDiv.className = 'comment';
+      const commentDiv = $(`
+        <div class="comment">
+          <p class="comment__name">${comment.name}</p>
+          <p class="comment__email"><strong>${comment.email}</strong></p>
+          <p class="comment__body">${comment.body}</p>
+        </div>
+      `);
 
-      const commentName = document.createElement('p');
-      commentName.className = 'comment__name';
-      commentName.textContent = comment.name;
-      commentDiv.appendChild(commentName);
+      sliderContainer.append(commentDiv);
+    });
 
-      const commentEmail = document.createElement('p');
-      commentEmail.innerHTML = `<strong>${comment.email}</strong>`;
-      commentEmail.className = 'comment__email';
-      commentDiv.appendChild(commentEmail);
-
-      const commentBody = document.createElement('p');
-      commentBody.className = 'comment__body';
-      commentBody.textContent = comment.body;
-      commentDiv.appendChild(commentBody);
-
-      commentsContainer.appendChild(commentDiv);
+    sliderContainer.slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      infinite: true, 
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
     });
   }
 
-  await fetch(api + postFilter)
-  .then((response) => {
+  try {
+    const response = await fetch(api + postFilter);
     if (!response.ok) {
       throw new Error('⚠ Что-то пошло не так');
     }
-
-    return response.json();
-  })
-  .then((data) => {
+    const data = await response.json();
     hidePreloader();
     renderComments(data);
-  })
-  .catch((error) => {
+  } catch (error) {
     hidePreloader();
     showErrorMessage(error.message);
-  });
+  }
 });
