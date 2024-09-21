@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const teaNameInput = document.getElementById('teaName');
   const teaBrewingFeatureInput = document.getElementById("teaBrewingFeature");
-  const teaBrewingFeaturesElement = document.getElementById("teaBrewingFeatures");
+  const teaBrewingFeatureElements = document.getElementById("teaBrewingFeatures");
   const addFeatureButton = document.getElementById("addFeatureButton");
   const clearButton = document.getElementById("clearButton");
 
@@ -9,27 +9,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const offerReciept = document.getElementById("offerRecieptButton");
   const languageSelect = document.getElementById("language");
 
-  let brewingFeatures = [];
+  teaBrewingFeatureInput.addEventListener('change', event => {
+    localStorage.setItem("teaBrewingFeature", event.target.value.trim());
+  });
 
-  const savedTeaName = localStorage.getItem("teaName");
-  const savedBrewingFeatures = JSON.parse(localStorage.getItem("brewingFeatures") || "[]");
+  teaNameInput.addEventListener('change', event => {
+    localStorage.setItem("teaName", event.target.value.trim());
+  });
 
-  if (savedTeaName) {
-    teaNameInput.value = savedTeaName;
+  languageSelect.addEventListener('change', event => {
+    localStorage.setItem("recieptLanguage", event.target.value.trim());
+  });
+
+  function getBrewingFeatures() {
+    const brewingFeatures = [];
+    for (let item of teaBrewingFeatureElements.children) {
+      const label = item.querySelector('label');
+  
+      const featureInfo = {
+        value: item.textContent,
+        classList: Array.from(label.classList),
+      };
+    
+      brewingFeatures.push(featureInfo);
+    }
+    
+    return brewingFeatures;
   }
-
-  if (typeof savedBrewingFeatures === 'object' && savedBrewingFeatures.length !== 0) {
-    brewingFeatures = savedBrewingFeatures;
-    addReciept();
-  }
-
+  
   addFeatureButton.addEventListener('click', event => {
     event.preventDefault();
     const feature = teaBrewingFeatureInput.value.trim();
+    localStorage.removeItem("teaBrewingFeature");
 
     if (feature) {
-      brewingFeatures.push(feature);
       displayBrewingFeature(feature);
+
+      localStorage.setItem("brewingFeatures", JSON.stringify(getBrewingFeatures()));
       teaBrewingFeatureInput.value = "";
     }
   });
@@ -41,10 +57,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   offerReciept.addEventListener('click', event => {
     event.preventDefault();
-    addReciept();
+    localStorage.removeItem("teaName");
+    localStorage.removeItem("recieptLanguage");
+    localStorage.removeItem("teaBrewingFeature");
+    localStorage.removeItem("brewingFeatures");
+
+    const language = languageSelect.value;
+    const teaName = teaNameInput.value;
+    const brewingFeatures = getBrewingFeatures();
+
+    const reciept = {
+      teaName: teaName,
+      language: language,
+      brewingFeatures: brewingFeatures,
+    }
+
+    localStorage.setItem("reciept", JSON.stringify(reciept));
+    addReciept(language, teaName, brewingFeatures);
   })
 
-  function displayBrewingFeature (feature) {
+  function displayBrewingFeature (feature, classList = "") {
     if (!feature) {
       return;
     }
@@ -54,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const uniqueId = `feature-${Date.now()}`;
     label.setAttribute('for', uniqueId);
     label.textContent = feature;
+    label.classList = classList;
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
@@ -61,31 +94,31 @@ document.addEventListener('DOMContentLoaded', () => {
     checkbox.addEventListener('change', () => {
       if (checkbox.checked) {
         label.classList.add('strikethrough');
+
       } else {
         label.classList.remove('strikethrough');
       }
+      
+      localStorage.setItem("brewingFeatures", JSON.stringify(getBrewingFeatures()));
     });
 
     listItem.appendChild(label);
     listItem.appendChild(checkbox);
 
-    teaBrewingFeaturesElement.appendChild(listItem);
+    teaBrewingFeatureElements.appendChild(listItem);
   }
 
   function clearAll() {
-    teaBrewingFeaturesElement.innerHTML = "";
+    teaBrewingFeatureElements.innerHTML = "";
     teaBrewingFeatureInput.value = "";
     teaNameInput.value = "";
-
     resultContainer.innerHTML = ""; 
 
     localStorage.removeItem("teaName");
+    localStorage.removeItem("teaBrewingFeature");
+    localStorage.removeItem("recieptLanguage")
     localStorage.removeItem("brewingFeatures");
-
-    brewingFeatures = [];
-    brewingFeatures.forEach(value => {
-      displayBrewingFeature(value);
-    })
+    localStorage.removeItem("reciept");
   }
 
   function translate(text, lang) {
@@ -99,27 +132,48 @@ document.addEventListener('DOMContentLoaded', () => {
     return translations[text][lang];
   }
 
-  function addReciept() {
-    const language = languageSelect.value;
-    const teaName = teaNameInput.value;
+  function restoreValue() {
+    const savedTeaName = localStorage.getItem("teaName");
+    const savedRecieptLanguage = localStorage.getItem("recieptLanguage");
+    const savedTeaBrewingFeature = localStorage.getItem("teaBrewingFeature");
+    const savedBrewingFeatures = JSON.parse(localStorage.getItem("brewingFeatures") || "[]");
+    const savedReciept = JSON.parse(localStorage.getItem("reciept") || "{}");
 
-    localStorage.setItem("teaName", teaName);
-    localStorage.setItem("brewingFeatures", JSON.stringify(brewingFeatures));
+    if (savedTeaName) {
+      teaNameInput.value = savedTeaName;
+    }
 
-    resultContainer.innerHTML = `<h3>${translate('Рецепт', language)}: ${teaName}</h3>`;
-    const list = document.createElement("ul");
+    if (savedRecieptLanguage) {
+      languageSelect.value = savedRecieptLanguage;
+    }
 
-    const allItems = teaBrewingFeaturesElement.querySelectorAll("li");
-    allItems.forEach((item) => {
-      const label = item.querySelector("label");
+    if (savedTeaBrewingFeature) {
+      teaBrewingFeatureInput.value = savedTeaBrewingFeature;
+    }
+  
+    savedBrewingFeatures.forEach(item => {
+      displayBrewingFeature(item.value, item.classList);
+    });
 
-      if (!label.classList.contains('strikethrough')) {
+    if (Object.keys(savedReciept).length !== 0) {
+      addReciept(savedReciept.language, savedReciept.teaName, savedReciept.brewingFeatures);
+    }
+  }
+
+  function addReciept(language, teaName, brewingFeatures) {
+    resultContainer.innerHTML = `<h3>${translate("Рецепт", language)}: ${teaName}</h3>`;
+    const recieptItems = document.createElement("ul");
+
+    brewingFeatures.forEach(item => {
+      if (!item.classList.includes("strikethrough")) {
         const listItem = document.createElement("li");
-        listItem.textContent = label.textContent;
-        list.appendChild(listItem);
+        listItem.textContent = item.value;
+        recieptItems.appendChild(listItem);
       }
     });
 
-    resultContainer.appendChild(list);
+    resultContainer.appendChild(recieptItems);
   }
+
+  restoreValue();
 })

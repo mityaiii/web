@@ -1,10 +1,4 @@
 /* kits */
-.kits__subtitle {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
 .kits__content {
   display: flex;
   align-items: center;

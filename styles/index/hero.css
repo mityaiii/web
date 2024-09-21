@@ -72,6 +72,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hero__wrapper {
+    width: 95%;
+  }
+}
+
 @media (max-width: 480px) {
   .hero__button {
     padding: 8px 18px;

@@ -1,0 +1,37 @@
+/* header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--background-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  padding: 16px 0px;
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+}
+
+.header__container {
+  max-width: var(--screen-width);
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__list {
+  display: flex;
+  column-gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .header__container {
+    margin: 0 10px;
+  }
+}

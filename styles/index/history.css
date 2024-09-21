@@ -1,10 +1,4 @@
 /* history */
-.history__subtitle {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
 .history__container {
   display: flex;
   align-items: center;

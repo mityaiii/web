@@ -12,6 +12,8 @@
 
   <link rel="stylesheet" href="./styles/reset.css">
   <link rel="stylesheet" href="./styles/default.css">
+  <link rel="stylesheet" href="./styles/header.css">
+  <link rel="stylesheet" href="./styles/footer.css">
   <link rel="stylesheet" href="./styles/index/catalog.css">
   <link rel="stylesheet" href="./styles/index/hero.css">
   <link rel="stylesheet" href="./styles/index/history.css">
@@ -32,12 +34,12 @@
       <img class="logo header__logo" src="./asserts/logo.svg" alt="логотип" />
       <nav class="header__nav">
         <ul class="header__list">
-          <li class="header__item">
-            <a class="header__link" href="/index.html">Главная</a>
+          <li class="nav__item">
+            <a class="nav__link" href="/index.html">Главная</a>
           </li>
 
-          <li class="header__item">
-            <a class="header__link" href="/form.html">Создать рецепт</a>
+          <li class="nav__item">
+            <a class="nav__link" href="/form.html">Создать рецепт</a>
           </li>
         </ul>
       </nav>
@@ -64,7 +66,7 @@
 
     <div class="main__wrapper">
       <section class="kits">
-        <h3 class="kits__subtitle">Наборы</h3>
+        <h3 class="section__title kits__subtitle">Наборы</h3>
 
         <div class="kits__content">
           <div class="kit">
@@ -80,7 +82,7 @@
       </section>
 
       <section class="history">
-        <h3 class="history__subtitle">Наша история</h3>
+        <h3 class="section__title">Наша история</h3>
 
         <div class="history__container">
           <article class="history__article">
@@ -101,7 +103,7 @@
       </section>
 
       <section class="catalog">
-        <h3 class="catalog__subtitle">Коллекция чаев нашего производства</h3>
+        <h3 class="section__title">Коллекция чаев нашего производства</h3>
 
         <div class="catalog__container">
           <div class="product">
@@ -161,22 +163,8 @@
         </div>
       </section>
 
-      <section class="comments">
-        <h3 class="comments__title">Отзывы</h3>
-
-        <div class="comments__container">
-          <img id="preloader" class="comments__preloader" src="./asserts/preloader.gif" alt="preloader" />
-
-          <div class="comment__error" id="error-message"></div>
-          
-          <div class="comment__slider">
-          </div>
-        </div>
-
-      </section>
-
       <section class="price-list">
-        <h3 class="price-list__title">Цены на чай</h3>
+        <h3 class="section__title">Цены на чай</h3>
         <div class="price-list__table">
           <div class="price-list__header">Название чая</div>
           <div class="price-list__header">Вес</div>
@@ -194,6 +182,20 @@
           <div class="price-list__row">100г</div>
           <div class="price-list__row">550₽</div>
         </div>
+      </section>
+
+      <section class="comments">
+        <h3 class="section__title">Отзывы</h3>
+
+        <div class="comments__container">
+          <img id="preloader" class="comments__preloader" src="./asserts/preloader.gif" alt="preloader" />
+
+          <div class="comment__error" id="error-message"></div>
+
+          <div class="comment__slider">
+          </div>
+        </div>
+
       </section>
 
       <section class="additional-info">
@@ -222,12 +224,12 @@
 
       <nav class="footer__nav">
         <ul class="footer__list">
-          <li class="header__item">
-            <a class="header__link" href="/index.html">Главная</a>
+          <li class="nav__item">
+            <a class="nav__link" href="/index.html">Главная</a>
           </li>
 
-          <li class="header__item">
-            <a class="header__link" href="/form.html">Создать рецепт</a>
+          <li class="nav__item">
+            <a class="nav__link" href="/form.html">Создать рецепт</a>
           </li>
         </ul>
       </nav>

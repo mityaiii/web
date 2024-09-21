@@ -5,9 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tea Shop</title>
-  <link rel="stylesheet" type="text/css" href="./styles/reset.css">
-  <link rel="stylesheet" type="text/css" href="./styles/default.css">
-  <link rel="stylesheet" type="text/css" href="./styles/form/tea-brewing__section.css">
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/default.css">
+  <link rel="stylesheet" href="./styles/header.css">
+  <link rel="stylesheet" href="./styles/footer.css">
+  <link rel="stylesheet" href="./styles/form/tea-brewing__section.css">
 
   <script src="./scripts/parse-load-statistic.js"></script>
   <script src="./scripts/nav__link.js"></script>
@@ -20,73 +22,75 @@
       <img class="logo header__logo" src="./asserts/logo.svg" alt="логотип" />
       <nav class="header__nav">
         <ul class="header__list">
-          <li class="header__item">
-            <a class="header__link" href="/index.html">Главная</a>
+          <li class="nav__item">
+            <a class="nav__link" href="/index.html">Главная</a>
           </li>
 
-          <li class="header__item">
-            <a class="header__link" href="/form.html">Создать рецепт</a>
+          <li class="nav__item">
+            <a class="nav__link" href="/form.html">Создать рецепт</a>
           </li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="tea-brewing">
-      <div class="tea-brewing__container">
-        <h2 class="tea-brewing__title">Рецепт идеальной заварки</h2>
-        <form class="tea-brewing__form" id="tea-brewing-form">
-          <label>
-            Название чая:
-            <input type="text" name="teaName" id="teaName">
-          </label>
-          
-          <label>
-            Особенности заварки
-            <input type="text" name="teaBrewingFeature" id="teaBrewingFeature">
-          </label>
+  <main class="main">
+    <div class="main__wrapper">
+      <section class="tea-brewing">
+        <div class="tea-brewing__container">
+          <h1 class="section__title">Рецепт идеальной заварки</h1>
+          <form class="tea-brewing__form" id="tea-brewing-form">
+            <label>
+              Название чая:
+              <input type="text" name="teaName" id="teaName">
+            </label>
 
-          <div class="tea-brewing__buttons">
-            <button type="button" id="clearButton" class="button tea-brewing__button">
-              Очистить
-            </button>
+            <label>
+              Особенности заварки
+              <input type="text" name="teaBrewingFeature" id="teaBrewingFeature">
+            </label>
 
-            <button type="button" id="addFeatureButton" class="button tea-brewing__button button--primary ">
-              Добавить
-            </button>
-          </div>
+            <div class="tea-brewing__buttons">
+              <button type="button" id="clearButton" class="button tea-brewing__button">
+                Очистить
+              </button>
 
-          <ul class="tea-brewing__list" id="teaBrewingFeatures"></ul>
+              <button type="button" id="addFeatureButton" class="button tea-brewing__button button--primary ">
+                Добавить
+              </button>
+            </div>
 
-          <label>
-            Язык
-            <select name="language" id="language">
-              <option value="ru">Русский</option>
-              <option value="en">Английский</option>
-            </select>
-          </label>
+            <ul class="tea-brewing__list" id="teaBrewingFeatures"></ul>
 
-          <button id="offerRecieptButton" class="button button--primary tea-brewing__button" type="submit">Предложить</button>
-        </form>
-      </div>
+            <label>
+              Язык
+              <select name="language" id="language">
+                <option value="ru">Русский</option>
+                <option value="en">Английский</option>
+              </select>
+            </label>
 
-      <div id="result-container" class="result__container"></div>
-    </section>
+            <button id="offerRecieptButton" class="button button--primary tea-brewing__button"
+              type="submit">Предложить</button>
+          </form>
+        </div>
+
+        <div id="result-container" class="result__container"></div>
+      </section>
+    </div>
   </main>
-
   <footer id="contacts" class="footer form__footer">
     <div class="footer__container">
       <img class="logo" src="./asserts/logo.svg" alt="логотип" />
 
       <nav class="footer__nav">
         <ul class="footer__list">
-          <li class="header__item">
-            <a class="header__link" href="/index.html">Главная</a>
+          <li class="nav__item">
+            <a class="nav__link" href="/index.html">Главная</a>
           </li>
 
-          <li class="header__item">
-            <a class="header__link" href="/form.html">Создать рецепт</a>
+          <li class="nav__item">
+            <a class="nav__link" href="/form.html">Создать рецепт</a>
           </li>
         </ul>
       </nav>

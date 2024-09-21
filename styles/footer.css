@@ -1,0 +1,33 @@
+/* footer */
+.footer {
+  background-color: var(--background-color);
+
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  row-gap: 12px;
+}
+
+.footer__list {
+  display: flex;
+  column-gap: 12px;
+}
+
+.footer__list a {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.footer__stats {
+  margin-top: 1rem;
+  text-align: center;
+}

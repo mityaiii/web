@@ -12,11 +12,14 @@
   --color-animation: color 0.3s ease;
   --transform-animation: transform 0.3s ease;
 
+  overflow-x: hidden;
+
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 body {
   background-color: rgba(var(--primary-color-rgb), 0.1);
+  height: 100vh;
 }
 
 .button {
@@ -29,17 +32,21 @@ body {
   color: var(--background-color);
 }
 
-.logo {
-  width: 72px;
-  height: 72px;
+.section__title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .main {
   padding-top: 100px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .main section {
-  padding: 32px 0;
+  padding: 20px 0;
 }
 
 .main__wrapper {
@@ -52,82 +59,33 @@ body {
   margin: 0 auto;
 }
 
-/* header */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: var(--background-color);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-  padding: 16px 0px;
+.none {
+  display: none !important;
 }
 
-.header__container {
-  max-width: var(--screen-width);
-  margin: 0 auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header__list {
-  display: flex;
-  column-gap: 16px;
-}
-
-.header__link {
+.nav__link {
   color: var(--primary-color);
   font-size: 1.2rem;
   transition: var(--color-animation);
 }
 
-.header__link:hover {
+.nav__link:hover {
   color: var(--secondary-colors);
 }
 
-.header__link.active {
+.nav__link.active {
   border-bottom: 2px solid var(--secondary-color);
   padding-bottom: 2px;
 }
 
-/* footer */
-.footer {
-  background-color: var(--background-color);
 
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
+@media (max-width: 768px) {
+  /* main */
+  .main__wrapper {
+    width: 94%;
+  }
 
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-
-.footer__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  row-gap: 12px;
-}
-
-.footer__list {
-  display: flex;
-  column-gap: 12px;
-}
-
-.footer__list a {
-  color: var(--primary-color);
-  font-size: 1.2rem;
-}
-
-.footer__stats {
-  margin-top: 1rem;
-  text-align: center;
-}
-
-.none {
-  display: none !important;
+  .section__title {
+    font-size: 1.6rem;
+  }
 }

@@ -21,9 +21,11 @@ $(document).ready(async function () {
     comments.forEach(comment => {
       const commentDiv = $(`
         <div class="comment">
-          <p class="comment__name">${comment.name}</p>
-          <p class="comment__email"><strong>${comment.email}</strong></p>
-          <p class="comment__body">${comment.body}</p>
+          <div class="comment__wrapper">
+            <p class="comment__name">${comment.name}</p>
+            <p class="comment__email"><strong>${comment.email}</strong></p>
+            <p class="comment__body">${comment.body}</p>
+          </div>
         </div>
       `);
 
@@ -31,16 +33,10 @@ $(document).ready(async function () {
     });
 
     sliderContainer.slick({
-      slidesToShow: 4,
+      slidesToShow: 3,
       slidesToScroll: 1,
       infinite: true, 
       responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3
-          }
-        },
         {
           breakpoint: 768,
           settings: {
